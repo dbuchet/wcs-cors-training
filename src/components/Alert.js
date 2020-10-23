@@ -9,6 +9,7 @@ import SimpleMd from './SimpleMd';
 const useStyle = makeStyles(theme => ({
 
     alert: {
+        width: 960,
         '& a':{
             textDecoration: "none",
             fontWeight: "bold",
@@ -32,6 +33,10 @@ const useStyle = makeStyles(theme => ({
                 color: theme.alerts.error.main
             }
         },
+        "& .MuiAlertTitle-root": {
+            fontWeight: "bold",
+            fontSize: 16,
+        },
     }
 
 }));
@@ -39,6 +44,8 @@ const useStyle = makeStyles(theme => ({
 const Alert = ({severity, content, title, withBr, md, children, className, ...props}) => {
 
     const classes = useStyle();
+
+    console.log("title=",title, "content=", content)
 
     return (
     <MuiAlert severity={severity} className={cn(classes.alert, className)} {...props}>

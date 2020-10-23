@@ -1,15 +1,23 @@
 import React from 'react';
 import { CssBaseline } from '@material-ui/core';
+import { useGlobalStyle } from './utils/styles';
 
-import "fontsource-roboto";
 
-//import './App.css';
+/* STEPS */
+import Intro from './steps/Intro';
+import Step1 from './steps/Step1';
+import Step2 from './steps/Step2';
 
 const App = () => {
+
+    const classes = useGlobalStyle();
+
     return (
-        <div>
+        <div className={classes.body}>
             <CssBaseline />
-            Hello there!
+            <Intro />
+            <Step1 />
+            <Step2 />
         </div>
     );
 }

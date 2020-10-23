@@ -7,7 +7,7 @@ const SyntaxHighlighter = ({language, value}) => {
     if (!value || value === "") return null;
 
     return (
-        <PrismSyntaxHighlighter language={language} style={theme} showLineNumbers>
+        <PrismSyntaxHighlighter language={language || "javascript"} style={theme} showLineNumbers>
             {value}
         </PrismSyntaxHighlighter>
     )

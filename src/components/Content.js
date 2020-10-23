@@ -50,16 +50,16 @@ const useStyle = makeStyles(theme => ({
             fontSize: 16
 
         },
+        '& code': {
+            color: "#E5688F",
+            padding: 1,
+            backgroundColor: theme.backgroundColor,
+            border: "1px solid #3c4257",
+            borderRadius: 3,
+            fontFamily: theme.fonts.code,
+            fontSize: 14,
+        },
         '& p': {
-            '& code': {
-                color: "#E5688F",
-                padding: 1,
-                backgroundColor: theme.backgroundColor,
-                border: "1px solid #D4D4D4",
-                borderRadius: 3,
-                fontFamily: theme.fonts.code,
-                fontSize: 12,
-            },
             '& a': {
                 textDecoration: 'none',
                 color: theme.main,
@@ -150,6 +150,10 @@ const useStyle = makeStyles(theme => ({
     },
     img: {
         textAlign: 'center',
+        marginTop: 32,
+        marginBottom: 32,
+        paddingLeft: 32,
+        paddingRight: 32,
         '& img': {
             maxWidth: '100%',
         }
@@ -171,7 +175,7 @@ const useStyle = makeStyles(theme => ({
     }
 }));
 
-const QuestContent = ({source, iFrameHeight}) => {
+const Content = ({md}) => {
 
     const classes = useStyle();
 
@@ -217,11 +221,11 @@ const QuestContent = ({source, iFrameHeight}) => {
     return (
         <Markdown
             className={classes.root}
-            source={source}
+            source={md}
             linkTarget="_blank"
             renderers={renderers}
         />
     );
 };
 
-export default memo(QuestContent);
+export default memo(Content);
