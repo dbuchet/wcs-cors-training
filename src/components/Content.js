@@ -70,13 +70,16 @@ const useStyle = makeStyles(theme => ({
             }
         },
         '& pre': {
-            backgroundColor: theme.backgroundColor,
-            border: "1px solid #D4D4D4",
-            padding: 10,
-            borderRadius: 3,
+            backgroundColor: "#2a2f45",
+            border: "1px solid #3c4257",
+            padding: 8,
+            borderRadius: 5,
             whiteSpace: "break-spaces",
             '& code': {
-                fontFamily: theme.fonts.code,
+                padding: 0,
+                backgroundColor: "none",
+                border: "none",
+                color: '#FFF'
             }
         },
         "& blockquote": {

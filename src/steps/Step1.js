@@ -33,7 +33,7 @@ app.get('/step-1-1', (req, res) => {
                 </div>
             </div>
             <div className={cn(classes.result, 'error')}>
-                {`Access to fetch at 'http://localhost:4000/step-1' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`}
+                {`Access to fetch at 'http://localhost:4000/step-1-1' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`}
             </div>
             <div className={classes.content}>
                 <Content md={`Fortunately, we can configure our **back-end** to **allow** external origin, using the header parameter \`Access-Control-Allow-Origin\``} />

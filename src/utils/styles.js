@@ -22,7 +22,7 @@ export const useGlobalStyle = makeStyles(theme => ({
     },
     codes: {
         marginTop: 16,
-        width: 1280,
+        width: 1250,
         display: 'flex',
     },
     code: {
@@ -37,7 +37,7 @@ export const useGlobalStyle = makeStyles(theme => ({
         padding: 8,
         backgroundColor: '#2a2f45',
         border: "1px solid #3c4257",
-        borderRadius: 3,
+        borderRadius: 5,
         fontFamily: theme.fonts.code,
         fontSize: 14,
         width: 960,

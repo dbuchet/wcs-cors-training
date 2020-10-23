@@ -11,9 +11,18 @@ const md = `# What is CORS? (Oh baby, don't hurt me)
 
 ![image](https://storage.googleapis.com/quest_editor_uploads/pVzeCkApvStoyOKylNjN1VHwt7Y5yGgA.jpg)
 
-For all future exemple, I have a front-end running with React, which will make calls to a back-end written in Node
+## So why?
+CORS are an HTTP security to avoid un-allowed domains to request resources on your domain.
+It also offers some kind of protection against DdoS attacks.
 
-Front-End url is \`localhost:3000\`, Back-End url is \`localhost:4000\`, which are **two different origins due to port**
+
+## Let's dive into!
+
+For all future exemple, we'll use a back-end server written in Node, and a JS front-end application.
+
+Front-End url is \`localhost:3000\` and Back-End url is \`localhost:4000\`, which are **two different origins due to port**
+
+All \`fetch\` can be sent direcly via the developer console, and you can monitor the \`HTTP Headers\` exchanged with back-end in the **Network Tab**
 
 `
 
