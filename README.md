@@ -1,11 +1,13 @@
 # CORS Training
 ### Wild Code School
 
+### Installation
+Install all dependencies by running `yarn install` or `npm install`
 
+### Start
+Just run `yarn start` or `npm run start`. 
+The training should open by itself on `http://localhost:3000`
+You can also open your Developer Tools in front-end page to monitor network & console
 
-Just run `yarn start` or `npm run start`
-
-- Back-end endpoints are in `server/index.js`
-- Front-end parts are in `md/*` and `steps/*`
 
 https://github.com/dbuchet/wcs-cors-training
