@@ -29,7 +29,7 @@ const Request = ({onClick, label, result, error, success}) => {
                     disabled={loading}
                     variant='outlined'
                 >
-                    {label || "Call Fetch"}
+                    {label || "Fetch API"}
                 </Button>
             )}
         </div>
