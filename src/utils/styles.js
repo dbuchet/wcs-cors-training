@@ -8,6 +8,11 @@ export const useGlobalStyle = makeStyles(theme => ({
         paddingTop: 0,
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
+        [theme.bp.mobile]: {
+            paddingLeft: 16,
+            paddingRight: 16,
+        }
     },
     step: {
         marginBottom: 64,
@@ -15,21 +20,34 @@ export const useGlobalStyle = makeStyles(theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
     },
     content: {
         display: "flex",
         width: 960,
+        [theme.bp.mobile]: {
+            width: '100%'
+        }
     },
     codes: {
         marginTop: 16,
         width: 1250,
         display: 'flex',
+        [theme.bp.mobile]: {
+            width: '100%',
+            flexDirection: 'column',
+        }
     },
     code: {
         width: '50%',
         minWidth: '50%',
         paddingLeft: 16,
         paddingRight: 16,
+        [theme.bp.mobile]: {
+            width: '100%',
+            paddingLeft: 0,
+            paddingRight: 0,
+        }
     },
     result: {
         marginTop: 16,
@@ -50,6 +68,9 @@ export const useGlobalStyle = makeStyles(theme => ({
         },
         '&.center': {
             textAlign: 'center'
+        },
+        [theme.bp.mobile]: {
+            width: '100%'
         }
     }
 }))

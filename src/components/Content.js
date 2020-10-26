@@ -12,6 +12,7 @@ import SyntaxHighlighter from './SyntaxHighlighter';
 const MARGIN = 16;
 const useStyle = makeStyles(theme => ({
     root: {
+        width: '100%',
         fontSize: 16,
         lineHeight: '26px',
         '& ul, ol': {
@@ -20,6 +21,7 @@ const useStyle = makeStyles(theme => ({
             '& a': {
                 textDecoration: 'none',
                 fontWeight: 'bold',
+                wordBreak: "break-all",
                 '&:hover': {
                     textDecoration: 'underline',
                 }
@@ -140,9 +142,9 @@ const useStyle = makeStyles(theme => ({
             marginTop: (MARGIN + 10),
             marginBottom: (MARGIN + 10),
         },
-        [theme.bp.mobile]: {
-            maxWidth: 'calc(100vw - 32px)',
-        }
+        "& a": {
+            color: theme.alerts.info.main
+        },
     },
     iframe: {
         marginTop: MARGIN,

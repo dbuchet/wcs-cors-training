@@ -37,6 +37,9 @@ const useStyle = makeStyles(theme => ({
             fontWeight: "bold",
             fontSize: 16,
         },
+        [theme.bp.mobile]: {
+            width: '100%'
+        }
     }
 
 }));
