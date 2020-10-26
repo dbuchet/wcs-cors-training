@@ -47,6 +47,9 @@ export const useGlobalStyle = makeStyles(theme => ({
         },
         '&.success': {
             borderColor: theme.alerts.success.main,
+        },
+        '&.center': {
+            textAlign: 'center'
         }
     }
 }))

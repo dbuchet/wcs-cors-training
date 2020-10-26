@@ -11,16 +11,7 @@ const themeObjectDefault = {
 			primary: '#c1c9d2'
 		},
 		primary: {
-			light: '#646d7a',
-			main: '#39424e',
-			dark: '#121b26',
-			contrastText: '#fff',
-		},
-		secondary: {
-			light: '#ff9e9a',
-			main: '#f76c6c',
-			dark: '#bf3a41',
-			contrastText: '#fff',
+			main: '#c1c9d2',
 		},
 	},
 	typography: {

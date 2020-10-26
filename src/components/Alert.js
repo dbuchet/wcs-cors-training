@@ -45,8 +45,6 @@ const Alert = ({severity, content, title, withBr, md, children, className, ...pr
 
     const classes = useStyle();
 
-    console.log("title=",title, "content=", content)
-
     return (
     <MuiAlert severity={severity} className={cn(classes.alert, className)} {...props}>
         { title && <AlertTitle>{ title }</AlertTitle> }

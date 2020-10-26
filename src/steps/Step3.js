@@ -1,15 +1,25 @@
-import React, { memo } from "react";
-import cn from "clsx";
+import React, { memo, useCallback } from "react";
 
 import { useGlobalStyle } from "../utils/styles";
+import fetch from "../utils/fetch";
 
 import Content from '../components/Content';
 import SyntaxHighlighter from '../components/SyntaxHighlighter';
+import Request from "../components/Request";
 
 
 const Step = () => {
 
     const classes = useGlobalStyle();
+
+    const _trigger1 = useCallback(() => {
+        fetch("http://localhost:4000/step-3-1", {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }, []);
 
     return (
         <div className={classes.step}>
@@ -24,7 +34,7 @@ http://localhost:4000/step-2-1     GET         ERR_FAILED
 
 \`\`\`alert-info
 # Pay attention!
-\`GET\` request is a JS error, it's not an HTTP error code, which means this error code does not comes from a 4xx or 5xx API status code
+\`GET\` request is a JS error, it's not an HTTP error code, which means this error code does not come from a 4xx or 5xx API status code
 \`\`\`
 
 So what are these 2 calls, and what is this \`OPTIONS\` before my \`GET\`?
@@ -69,13 +79,16 @@ app.options('/step-3-1', (req, res) => {
 });
 
 app.get('/step-3-1', (req, res) => {
+    
     res.status(200).json({result: "[GET] Hello World! Step 3-1"})
 });`} />
                 </div>
             </div>
-            <div className={cn(classes.result, 'error')}>
-                {`Access to fetch at 'http://localhost:4000/step-3-1' from origin 'http://localhost:3000' has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.`}
-            </div>
+            <Request
+                onClick={_trigger1}
+                result={`Access to fetch at 'http://localhost:4000/step-3-1' from origin 'http://localhost:3000' has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.`}
+                error
+            />
             <div className={classes.content}>
                 <Content md={`Oh! Still an error! So what let's inspect our response headers
 \`\`\`          
@@ -84,7 +97,7 @@ Connection: keep-alive
 Content-Length: 0
 \`\`\`
 
-We do have our \`Access-Control-Allow-Origin\` so problem does not comes from here. Well, we just have to read at JS Error \`Request header field content-type is not allowed by Access-Control-Allow-Headers\` `} />
+We do have our \`Access-Control-Allow-Origin\` so problem does not comes from here. Well, we just have to read at JS Error \`Request header field content-type is not allowed by Access-Control-Allow-Headers\` to figure out it's a new error. Let's understand why, and fix this one!`} />
             </div>
         </div>
     )

@@ -29,6 +29,7 @@ app.options('/step-3-1', (req, res) => {
     res.status(200).send()
 });
 app.get('/step-3-1', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     res.status(200).json({result: '[GET] Hello World! - Step 3-1'})
 });
 
@@ -40,6 +41,9 @@ app.options('/step-4-1', (req, res) => {
     res.status(200).send()
 });
 app.get('/step-4-1', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Method', 'GET,OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
     res.status(200).json({result: '[GET] Hello World! - Step 4-1'})
 });
 
@@ -51,6 +55,9 @@ app.options('/step-4-2', (req, res) => {
 });
 
 app.put('/step-4-2', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Method', 'GET,OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
     res.status(200).json({result: "[PUT] Hello World! Step 4-2"})
 });
 

@@ -19,7 +19,6 @@ const useStyle = makeStyles(theme => ({
             padding: 0,
             '& a': {
                 textDecoration: 'none',
-                color: theme.main,
                 fontWeight: 'bold',
                 '&:hover': {
                     textDecoration: 'underline',
@@ -37,7 +36,6 @@ const useStyle = makeStyles(theme => ({
             fontSize: 24
         },
         '& h3': {
-            color: theme.main,
             fontSize: 22
         },
         '& h4': {
@@ -60,9 +58,10 @@ const useStyle = makeStyles(theme => ({
             fontSize: 14,
         },
         '& p': {
+            marginTop: 16,
+            marginBottom: 16,
             '& a': {
                 textDecoration: 'none',
-                color: theme.main,
                 fontWeight: 'bold',
                 '&:hover': {
                     textDecoration: 'underline',
@@ -172,9 +171,6 @@ const useStyle = makeStyles(theme => ({
     checkbox: {
         padding: 3,
         paddingRight: 8,
-        '&.Mui-checked': {
-            color: `${theme.main} !important`,
-        }
     }
 }));
 

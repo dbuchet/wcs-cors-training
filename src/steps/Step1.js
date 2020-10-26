@@ -1,15 +1,24 @@
-import React, { memo } from "react";
-import cn from "clsx";
+import React, { memo, useCallback } from "react";
 
 import { useGlobalStyle } from "../utils/styles";
+import fetch from "../utils/fetch";
 
 import Content from '../components/Content';
 import SyntaxHighlighter from '../components/SyntaxHighlighter';
+import Request from "../components/Request";
 
 
 const Step = () => {
 
     const classes = useGlobalStyle();
+
+    const _trigger1 = useCallback(() => {
+        fetch("http://localhost:4000/step-1-1");
+    }, []);
+
+    const _trigger2 = useCallback(() => {
+        fetch("http://localhost:4000/step-1-2");
+    }, []);
 
     return (
         <div className={classes.step}>
@@ -32,9 +41,11 @@ app.get('/step-1-1', (req, res) => {
 });`} />
                 </div>
             </div>
-            <div className={cn(classes.result, 'error')}>
-                {`Access to fetch at 'http://localhost:4000/step-1-1' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`}
-            </div>
+            <Request
+                onClick={_trigger1}
+                result={`Access to fetch at 'http://localhost:4000/step-1-1' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`}
+                error
+            />
             <div className={classes.content}>
                 <Content md={`CORS uses HTTP Headers, so let's look at response headers
 
@@ -61,9 +72,11 @@ app.get('/step-1-2', (req, res) => {
 });`} />
                 </div>
             </div>
-            <div className={cn(classes.result, 'success')}>
-                {`[GET] Hello World! - Step 1-2`}
-            </div>
+            <Request
+                onClick={_trigger2}
+                result={`[GET] Hello World! - Step 1-2`}
+                success
+            />
             <div className={classes.content}>
                 <Content md={`\`\`\`alert-warning
 # Important!
