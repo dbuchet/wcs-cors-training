@@ -12,9 +12,7 @@ const md = `# What is CORS? (Oh baby, don't hurt me)
 ![image](https://storage.googleapis.com/quest_editor_uploads/pVzeCkApvStoyOKylNjN1VHwt7Y5yGgA.jpg)
 
 ## So why?
-CORS are an HTTP security to avoid un-allowed domains to request resources on your domain.
-It also offers some kind of protection against DdoS attacks.
-
+CORS are an HTTP security to avoid unauthorized domains to request resources on your domain.
 
 ## Let's dive into!
 
