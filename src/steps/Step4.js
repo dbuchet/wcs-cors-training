@@ -16,7 +16,7 @@ const Step = () => {
             <div className={classes.content}>
                 <Content md={`## 4. Request headers & Access-Control-*
 
-Let's look now at our request headers:
+Let's look at our request headers:
 
 \`\`\`
 Accept: */*
@@ -33,19 +33,17 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-site
 \`\`\`
 
-Many informations are sent, and they may vary depending on your browser, os, frameworks,... but there are important Headers, the \`Access-Control-*\`. So here, \`Access-Control-Request-Headers\` & \`Access-Control-Request-Method\`
+Many informations are sent, and they may vary depending on your browser, os, frameworks,... but there are important Headers, the \`Access-Control-Request-*\`. So here, \`Access-Control-Request-Headers\` & \`Access-Control-Request-Method\`
 
-These \`Access-Control-*\` **must** be authorized by the back-end. So responses headers from the \`preflight\` **must** indicate that theses headers can be sent. Let's look to response headers:
+Every \`Access-Control-Request-*\` from Front-End **must** match the corresponding \`Access-Control-Allow-*\` front Back-end response headers. 
 
-\`\`\`
-Access-Control-Allow-Origin: *
-Connection: keep-alive
-Content-Length: 0
-\`\`\`
+So if a \`Request\` does not have its matching \`Allow\` in \`preflight\` response, preflight will fail!
 
-No sign of \`Access-Control-Request-Headers\` & \`Access-Control-Request-Method\`, so \`preflight\` fail, so call fail
+Theses pairs are called the \`Access-Control-*\`
 
-One again, how to fix this? On your back-end by explicitely authorizing these request headers
+And as we've seen in previous response headers, we have no sign of \`Access-Control-Allow-Headers\` & \`Access-Control-Allow-Method\`, so \`preflight\` fails.
+
+Once again, how to fix this? On your back-end by explicitely authorizing these request headers
 `} />
             </div>
             <div className={classes.codes}>
@@ -54,7 +52,6 @@ One again, how to fix this? On your back-end by explicitely authorizing these re
 fetch("http://localhost:4000/step-4-1", {
     method: "get",
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
 })`} />
@@ -108,7 +105,6 @@ So now, what if I send a \`PUT\` request with same \`Access-Control-Allow-*\` de
 fetch("http://localhost:4000/step-4-2", {
     method: "put",
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
 })`} />

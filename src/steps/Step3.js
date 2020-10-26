@@ -22,11 +22,18 @@ http://localhost:4000/step-2-1     OPTIONS     200
 http://localhost:4000/step-2-1     GET         ERR_FAILED
 \`\`\`
 
-So what are these 2 calls, and what is this \`OPTION\` before my \`GET\`?
+\`\`\`alert-info
+# Pay attention!
+\`GET\` request is a JS error, it's not an HTTP error code, which means this error code does not comes from a 4xx or 5xx API status code
+\`\`\`
+
+So what are these 2 calls, and what is this \`OPTIONS\` before my \`GET\`?
 
 \`OPTIONS\` is a **Security check** triggered by your browser, to ensure that you are indeed allowed to request this resource. And this is called \`preflight\`.
 
-Let's see what this \`OPTIONS\` call is returning in headers:
+![image](https://storage.googleapis.com/quest_editor_uploads/BwusUPP9rbKcHbQkbSK67LS03WUuBuiJ.png)
+
+How \`OPTIONS\` works? Like other method, so let's see what headers are returned from this call:
 
 \`\`\`
 Allow: GET,HEAD,PUT
@@ -50,7 +57,6 @@ Once again, it'll be on **back-end** side. \`OPTIONS\` is a verb for REST API, s
 fetch("http://localhost:4000/step-3-1", {
     method: "get",
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
 })`} />
@@ -71,7 +77,14 @@ app.get('/step-3-1', (req, res) => {
                 {`Access to fetch at 'http://localhost:4000/step-3-1' from origin 'http://localhost:3000' has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.`}
             </div>
             <div className={classes.content}>
-                <Content md={`Well, we still have an error, but a completely different one this time!`} />
+                <Content md={`Oh! Still an error! So what let's inspect our response headers
+\`\`\`          
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 0
+\`\`\`
+
+We do have our \`Access-Control-Allow-Origin\` so problem does not comes from here. Well, we just have to read at JS Error \`Request header field content-type is not allowed by Access-Control-Allow-Headers\` `} />
             </div>
         </div>
     )

@@ -17,10 +17,10 @@ const Step = () => {
                 <Content md={`## 2. "Complex" requests
 
 "Simple" request are \`GET\` and \`POST\` requests with no additional headers added to request. If we trigger a "Simple" request, everything goes well.
-But what if we need ton add an header to a request, or we want to perform a \`PUT\` or \`DELETE\`?
+But what if we need to add an header to a request, or we want to perform a \`PUT\` or \`DELETE\`?
 
 Let's try to:
-- Make a \`GET\` request with a \`Content-Type\` and \`Accept\` header
+- Make a \`GET\` request with a \`Content-Type\` header
 - Make a \`PUT\` request
 
 `} />
@@ -31,7 +31,6 @@ Let's try to:
 fetch("http://localhost:4000/step-2-1", {
     method: "get",
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
 })`} />
@@ -70,7 +69,7 @@ app.put('/step-2-1', (req, res) => {
                 
 Let's look closer to the error message. They look identical to previous one at first sight, but they are not! And an important information is in these ones \`Response to preflight request doesn't pass access control check\`
 
-Preflight? Control check? What it that?`} />
+Preflight? Control check? What is that?`} />
             </div>
         </div>
     )
