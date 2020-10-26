@@ -55,7 +55,7 @@ Content-Length: 29
 Content-Type: text/html; charset=utf-8
 \`\`\`
 
-As you can see, no sign of the requested \`Access-Control-Allow-Origin\` from the JS error.
+As you can see, no sign of the requested \`Access-Control-Allow-Origin\`, as explained in the JS error.
 
 Fortunately, we can configure our **back-end** to define this header, and so **allow** external origin.`} />
             </div>
@@ -92,6 +92,11 @@ Content-Type: text/html; charset=utf-8
 \`\`\`
 
 Yes! \`Access-Control-Allow-Origin\` is well defined (and as a wildcard), so my request worked!
+
+### What is an "opaque response"?
+> Oh wait! What is this line in first error we got? \`set the request's mode to 'no-cors' to fetch the resource with CORS disabled\`. If we can disable CORS what do we have to care?
+
+Well you obviously **cannot** disable CORS. You can request a \`no-cors\` response, but you'll get an \`opaque\` reponse. Which means you'll only be able, in JS, to access the response \`headers\`, but not reponse \`body\`. So if you only need to have access to headers, you can indeed send a \`no-cors\` request. Well, that never happens.
 `} />
             </div>
         </div>
