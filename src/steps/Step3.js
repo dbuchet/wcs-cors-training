@@ -34,7 +34,7 @@ http://localhost:4000/step-2-1     GET         ERR_FAILED
 
 \`\`\`alert-info
 # Pay attention!
-\`GET\` request is a JS error, it's not an HTTP error code, which means this error code does not come from a 4xx or 5xx API status code
+\`GET\` request is a JS error, not an HTTP error code. Which means this error code does not come from a 4xx or 5xx API status code
 \`\`\`
 
 So what are these 2 calls, and what is this \`OPTIONS\` before my \`GET\`?
@@ -52,7 +52,7 @@ Content-Length: 12
 Content-Type: text/html; charset=utf-8
 \`\`\`
 
-So, from this \`preflight\` security check, there is no sign of \`Access-Control-Allow-Origin\`, so your origin doesn't seems to be authorized to perform this request, the \`preflight\` failed, so you \`fetch\` failed.
+So, from this \`preflight\` security check, there is no sign of \`Access-Control-Allow-Origin\`, so your origin doesn't seems to be authorized to perform this request. The \`preflight\` failed, so you \`fetch\` failed.
 
 #### How to fix this?
 
@@ -90,7 +90,7 @@ app.get('/step-3-1', (req, res) => {
                 error
             />
             <div className={classes.content}>
-                <Content md={`Oh! Still an error! So what let's inspect our response headers
+                <Content md={`Oh! Still an error! So let's inspect our response headers
 \`\`\`          
 Access-Control-Allow-Origin: *
 Connection: keep-alive

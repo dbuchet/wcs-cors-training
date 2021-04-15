@@ -54,7 +54,7 @@ Sec-Fetch-Site: same-site
 
 Many informations are sent, and they may vary depending on your browser, os, frameworks,... but there are important Headers, the \`Access-Control-Request-*\`. So here, \`Access-Control-Request-Headers\` & \`Access-Control-Request-Method\`
 
-Every \`Access-Control-Request-*\` from Front-End **must** match the corresponding \`Access-Control-Allow-*\` front \`preflight\` response headers. 
+Every \`Access-Control-Request-*\` from Front-End **must** match the corresponding \`Access-Control-Allow-*\` from \`preflight\` response headers. 
 
 So if a \`Request\` does not have its matching \`Allow\` in \`preflight\` response, preflight will fail! And so will your call.
 
